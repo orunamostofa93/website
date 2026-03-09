@@ -1,0 +1,2435 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>আন নাযাহ তাহফিযুল কুরআন মাদরাসা</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-dark: #1a5c32;
+    --green-mid: #2a7a45;
+    --green-light: #3a9a58;
+    --green-ultra: #e8f5ee;
+    --orange: #d4651a;
+    --orange-light: #e8793a;
+    --orange-ultra: #fff3eb;
+    --gold: #c9a227;
+    --cream: #faf8f3;
+    --text: #1a2e1e;
+    --text-muted: #5a7060;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans Bengali', sans-serif;
+    color: var(--text);
+    background: var(--cream);
+    overflow-x: hidden;
+  }
+
+  /* ===== DECORATIVE PATTERN ===== */
+  .islamic-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M30 0l8.66 5v10L30 20l-8.66-5V5L30 0zm0 40l8.66 5v10L30 60l-8.66-5V45L30 40zM0 20l8.66 5v10L0 40l-8.66-5V25L0 20zm60 0l8.66 5v10L60 40l-8.66-5V25L60 20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* ===== NAVBAR ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(26, 92, 50, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 2px solid var(--gold);
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+    transition: all 0.3s;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .nav-logo {
+    width: 44px;
+    height: 44px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .nav-title {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+  }
+
+  .nav-title span {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--gold);
+    font-family: 'Noto Sans Bengali', sans-serif;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 6px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 13px;
+    padding: 7px 14px;
+    border-radius: 20px;
+    transition: all 0.2s;
+    font-weight: 500;
+  }
+
+  .nav-links a:hover {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+  }
+
+  .nav-cta {
+    background: var(--orange) !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+  }
+
+  .nav-cta:hover {
+    background: var(--orange-light) !important;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .hamburger span {
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, var(--green-dark) 0%, #0f3820 40%, #1a5c32 70%, #0d2e18 100%);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 68px;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M40 0l10 17.3v34.6L40 69.3 30 52V17.3L40 0z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+
+
+  .hero-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,162,39,0.12) 0%, transparent 70%);
+    top: 50%;
+    right: -100px;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    min-height: calc(100vh - 68px);
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 5% 120px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201,162,39,0.15);
+    border: 1px solid rgba(201,162,39,0.4);
+    color: var(--gold);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero-arabic {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 22px;
+    color: var(--gold);
+    margin-bottom: 16px;
+    opacity: 0.9;
+    animation: fadeUp 0.9s ease both;
+    animation-delay: 0.1s;
+    letter-spacing: 2px;
+  }
+
+  .hero-title {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.25;
+    margin-bottom: 10px;
+    animation: fadeUp 1s ease both;
+    animation-delay: 0.2s;
+  }
+
+  .hero-title .highlight {
+    color: var(--gold);
+    display: block;
+  }
+
+  .hero-subtitle {
+    font-size: 15px;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 32px;
+    line-height: 1.8;
+    animation: fadeUp 1s ease both;
+    animation-delay: 0.3s;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    animation: fadeUp 1s ease both;
+    animation-delay: 0.4s;
+  }
+
+  .btn-primary {
+    background: var(--orange);
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 20px rgba(212,101,26,0.4);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-primary:hover {
+    background: var(--orange-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(212,101,26,0.5);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: #fff;
+    padding: 13px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    border: 1.5px solid rgba(255,255,255,0.4);
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  /* Hero right — stats card */
+  .hero-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+    padding: 32px;
+    backdrop-filter: blur(10px);
+    animation: fadeUp 1s ease both;
+    animation-delay: 0.5s;
+  }
+
+  .hero-card-title {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 16px;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .stat-item {
+    background: rgba(255,255,255,0.07);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: all 0.3s;
+  }
+
+  .stat-item:hover {
+    background: rgba(255,255,255,0.12);
+    transform: translateY(-2px);
+  }
+
+  .stat-number {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.65);
+  }
+
+  .feature-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .pill {
+    background: rgba(201,162,39,0.15);
+    border: 1px solid rgba(201,162,39,0.25);
+    color: var(--gold);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  /* ===== SECTION COMMON ===== */
+  section { padding: 90px 5%; }
+
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--green-ultra);
+    color: var(--green-mid);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    border: 1px solid rgba(42,122,69,0.2);
+  }
+
+  .section-title {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: clamp(26px, 4vw, 38px);
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+
+  .section-title .accent { color: var(--green-mid); }
+
+  .section-desc {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    max-width: 560px;
+  }
+
+  .section-header { margin-bottom: 52px; }
+
+  /* ===== WHY US ===== */
+  #কেন-আমরা { background: var(--cream); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .why-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px 28px;
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .why-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--green-mid), var(--green-light));
+    transform: scaleX(0);
+    transition: transform 0.3s;
+    transform-origin: left;
+  }
+
+  .why-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+  }
+
+  .why-card:hover::before { transform: scaleX(1); }
+
+  .why-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--green-ultra);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    margin-bottom: 18px;
+    transition: all 0.3s;
+  }
+
+  .why-card:hover .why-icon {
+    background: var(--green-mid);
+    transform: scale(1.05);
+  }
+
+  .why-title {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+
+  .why-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+
+  /* ===== PROGRAMS ===== */
+  #প্রোগ্রাম {
+    background: linear-gradient(160deg, var(--green-dark), #0f3820);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #প্রোগ্রাম .islamic-pattern {
+    position: absolute;
+    inset: 0;
+  }
+
+  #প্রোগ্রাম .section-tag {
+    background: rgba(255,255,255,0.1);
+    color: var(--gold);
+    border-color: rgba(201,162,39,0.3);
+  }
+
+  #প্রোগ্রাম .section-title { color: #fff; }
+  #প্রোগ্রাম .section-title .accent { color: var(--gold); }
+  #প্রোগ্রাম .section-desc { color: rgba(255,255,255,0.65); }
+
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .program-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+    padding: 28px 24px;
+    transition: all 0.3s;
+    cursor: default;
+  }
+
+  .program-card:hover {
+    background: rgba(255,255,255,0.12);
+    transform: translateY(-4px);
+    border-color: var(--gold);
+  }
+
+  .program-emoji {
+    font-size: 36px;
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .program-name {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  .program-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .program-badge {
+    display: inline-block;
+    background: rgba(201,162,39,0.2);
+    border: 1px solid rgba(201,162,39,0.4);
+    color: var(--gold);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  /* ===== FACILITIES ===== */
+  #সুবিধাসমূহ { background: #fff; }
+
+  .facilities-layout {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .facilities-visual {
+    background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+    border-radius: 24px;
+    padding: 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .facilities-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .facility-center-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+    display: block;
+    position: relative;
+    z-index: 1;
+  }
+
+  .facility-center-text {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 6px;
+  }
+
+  .facility-center-sub {
+    font-size: 13px;
+    color: var(--gold);
+    position: relative;
+    z-index: 1;
+  }
+
+  .facilities-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .facility-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 20px;
+    background: var(--cream);
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.3s;
+  }
+
+  .facility-item:hover {
+    background: var(--green-ultra);
+    border-color: rgba(42,122,69,0.2);
+    transform: translateX(4px);
+  }
+
+  .facility-icon {
+    width: 42px;
+    height: 42px;
+    background: var(--green-ultra);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+    transition: all 0.3s;
+  }
+
+  .facility-item:hover .facility-icon {
+    background: var(--green-mid);
+  }
+
+  .facility-info h4 {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 3px;
+  }
+
+  .facility-info p {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ===== ADMISSION ===== */
+  #ভর্তি {
+    background: linear-gradient(135deg, var(--orange-ultra), #fff5eb);
+    border-top: 1px solid rgba(212,101,26,0.1);
+    border-bottom: 1px solid rgba(212,101,26,0.1);
+  }
+
+  #ভর্তি .section-tag {
+    background: rgba(212,101,26,0.1);
+    color: var(--orange);
+    border-color: rgba(212,101,26,0.2);
+  }
+
+  #ভর্তি .section-title .accent { color: var(--orange); }
+
+  .admission-layout {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+  }
+
+  .admission-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .step {
+    display: flex;
+    gap: 20px;
+    position: relative;
+  }
+
+  .step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 44px;
+    width: 2px;
+    height: calc(100% - 10px);
+    background: linear-gradient(to bottom, var(--orange), transparent);
+  }
+
+  .step-num {
+    width: 40px;
+    height: 40px;
+    background: var(--orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 800;
+    font-size: 15px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(212,101,26,0.3);
+  }
+
+  .step-content {
+    padding-bottom: 28px;
+  }
+
+  .step-title {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--text);
+    margin-bottom: 5px;
+  }
+
+  .step-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .admission-info-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 32px;
+    border: 1px solid rgba(212,101,26,0.15);
+    box-shadow: 0 10px 40px rgba(212,101,26,0.08);
+  }
+
+  .info-title {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--orange-ultra);
+  }
+
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    font-size: 13px;
+  }
+
+  .info-row:last-child { border-bottom: none; }
+
+  .info-label { color: var(--text-muted); font-weight: 500; }
+
+  .info-value {
+    font-weight: 700;
+    color: var(--text);
+    text-align: right;
+  }
+
+  .info-value.highlight { color: var(--orange); }
+
+  .admission-cta {
+    margin-top: 24px;
+    background: linear-gradient(135deg, var(--orange), var(--orange-light));
+    color: #fff;
+    padding: 16px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    display: block;
+    transition: all 0.3s;
+    box-shadow: 0 4px 20px rgba(212,101,26,0.3);
+  }
+
+  .admission-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(212,101,26,0.4);
+  }
+
+  /* ===== TEACHERS ===== */
+  #শিক্ষকমণ্ডলী { background: var(--cream); }
+
+  .teachers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .teacher-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px 20px;
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: all 0.3s;
+  }
+
+  .teacher-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+  }
+
+  .teacher-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--green-mid), var(--green-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    margin: 0 auto 16px;
+    border: 3px solid var(--green-ultra);
+    transition: all 0.3s;
+  }
+
+  .teacher-card:hover .teacher-avatar {
+    border-color: var(--gold);
+    transform: scale(1.05);
+  }
+
+  .teacher-name {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .teacher-role {
+    font-size: 12px;
+    color: var(--green-mid);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .teacher-edu {
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ===== TESTIMONIALS ===== */
+  #অভিভাবক-মতামত {
+    background: linear-gradient(160deg, var(--green-dark), #0d2e18);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #অভিভাবক-মতামত::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='25'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  #অভিভাবক-মতামত .section-tag {
+    background: rgba(201,162,39,0.15);
+    color: var(--gold);
+    border-color: rgba(201,162,39,0.3);
+  }
+
+  #অভিভাবক-মতামত .section-title { color: #fff; }
+  #অভিভাবক-মতামত .section-desc { color: rgba(255,255,255,0.6); }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .testimonial-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 28px;
+    transition: all 0.3s;
+  }
+
+  .testimonial-card:hover {
+    background: rgba(255,255,255,0.12);
+    transform: translateY(-4px);
+  }
+
+  .quote-icon {
+    font-size: 40px;
+    color: var(--gold);
+    opacity: 0.4;
+    line-height: 1;
+    margin-bottom: 12px;
+    font-family: Georgia, serif;
+  }
+
+  .testimonial-text {
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.85;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .author-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .author-name {
+    font-weight: 700;
+    font-size: 13px;
+    color: #fff;
+    margin-bottom: 2px;
+  }
+
+  .author-info {
+    font-size: 11px;
+    color: var(--gold);
+  }
+
+  /* ===== CONTACT ===== */
+  #যোগাযোগ { background: #fff; }
+
+  .contact-layout {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .contact-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 8px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+    background: var(--cream);
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.3s;
+    text-decoration: none;
+  }
+
+  .contact-item:hover {
+    background: var(--green-ultra);
+    border-color: rgba(42,122,69,0.2);
+    transform: translateX(4px);
+  }
+
+  .contact-icon {
+    width: 46px;
+    height: 46px;
+    background: var(--green-ultra);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+    transition: background 0.3s;
+  }
+
+  .contact-item:hover .contact-icon { background: var(--green-mid); }
+
+  .contact-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+  }
+
+  .contact-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  .contact-form-card {
+    background: var(--cream);
+    border-radius: 20px;
+    padding: 36px;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .form-title {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 24px;
+  }
+
+  .form-group { margin-bottom: 18px; }
+
+  .form-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid rgba(0,0,0,0.1);
+    border-radius: 10px;
+    font-family: 'Noto Sans Bengali', sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    background: #fff;
+    transition: all 0.3s;
+    outline: none;
+  }
+
+  .form-input:focus {
+    border-color: var(--green-mid);
+    box-shadow: 0 0 0 3px rgba(42,122,69,0.1);
+  }
+
+  textarea.form-input { resize: vertical; min-height: 100px; }
+
+  .form-submit {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, var(--green-mid), var(--green-dark));
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Noto Sans Bengali', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 16px rgba(26,92,50,0.3);
+  }
+
+  .form-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(26,92,50,0.4);
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: linear-gradient(160deg, #0d2416, #0a1e10);
+    color: rgba(255,255,255,0.7);
+    padding: 60px 5% 24px;
+    border-top: 2px solid var(--gold);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .footer-brand-name {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 18px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+
+  .footer-brand-sub {
+    font-size: 12px;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .footer-desc {
+    font-size: 13px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.55);
+  }
+
+  .footer-heading {
+    font-weight: 700;
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-links a {
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 24px auto 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* ===== MOBILE MENU ===== */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 68px; left: 0; right: 0;
+    background: var(--green-dark);
+    padding: 20px 5%;
+    border-bottom: 2px solid var(--gold);
+    z-index: 999;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .mobile-menu.open { display: flex; }
+
+  .mobile-menu a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 15px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    transition: all 0.2s;
+  }
+
+  .mobile-menu a:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== SCROLL TO TOP ===== */
+  .scroll-top {
+    position: fixed;
+    bottom: 28px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    background: var(--orange);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    box-shadow: 0 4px 16px rgba(212,101,26,0.4);
+    transition: all 0.3s;
+  }
+
+  .scroll-top.show { display: flex; }
+  .scroll-top:hover { transform: translateY(-3px); }
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width: 900px) {
+    .hero-content { grid-template-columns: 1fr; gap: 40px; }
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .facilities-layout { grid-template-columns: 1fr; }
+    .admission-layout { grid-template-columns: 1fr; }
+    .contact-layout { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    #অনলাইন-কোর্স > div > div { grid-template-columns: 1fr !important; }
+    #বিশেষ-সুবিধা > div > div:last-child { grid-template-columns: 1fr !important; }
+    #ক্যারিয়ার > div > div { grid-template-columns: 1fr !important; }
+    #প্রসপেক্টাস > div > div { grid-template-columns: 1fr !important; }
+  }
+
+  @media(max-width: 600px) {
+    section { padding: 64px 5%; }
+    .why-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .hero-btns { flex-direction: column; }
+    .hero-btns a { text-align: center; justify-content: center; }
+    #গ্যালারি > div > div:first-child { grid-template-columns: 1fr 1fr !important; grid-template-rows: auto !important; }
+    #গ্যালারি > div > div:first-child > div:first-child { grid-row: span 1 !important; min-height: 160px !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a class="nav-brand" href="#">
+    <div class="nav-logo">🕌</div>
+    <div class="nav-title">
+      আন নাযাহ তাহফিযুল কুরআন মাদরাসা
+      <span>An Nazah Tahfizul Quran Madrasa</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#প্রোগ্রাম">প্রোগ্রাম</a></li>
+    <li><a href="#অনলাইন-কোর্স">অনলাইন কোর্স</a></li>
+    <li><a href="#বিশেষ-সুবিধা">বিশেষ সুবিধা</a></li>
+    <li><a href="#ক্যারিয়ার">ক্যারিয়ার</a></li>
+    <li><a href="#যোগাযোগ">যোগাযোগ</a></li>
+    <li><a href="#প্রসপেক্টাস" class="nav-cta">📄 প্রসপেক্টাস</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#কেন-আমরা" onclick="closeMenu()">কেন আমরা</a>
+  <a href="#প্রোগ্রাম" onclick="closeMenu()">প্রোগ্রাম</a>
+  <a href="#অনলাইন-কোর্স" onclick="closeMenu()">অনলাইন কোর্স</a>
+  <a href="#বিশেষ-সুবিধা" onclick="closeMenu()">বিশেষ সুবিধা</a>
+  <a href="#ক্যারিয়ার" onclick="closeMenu()">ক্যারিয়ার</a>
+  <a href="#শিক্ষকমণ্ডলী" onclick="closeMenu()">শিক্ষকমণ্ডলী</a>
+  <a href="#যোগাযোগ" onclick="closeMenu()">যোগাযোগ</a>
+  <a href="#প্রসপেক্টাস" onclick="closeMenu()" style="background:var(--orange);color:#fff;font-weight:700;text-align:center;margin-top:8px;border-radius:8px;">📄 প্রসপেক্টাস ডাউনলোড</a>
+  <a href="#ভর্তি" onclick="closeMenu()" style="background:var(--green-mid);color:#fff;font-weight:700;text-align:center;border-radius:8px;">✅ ভর্তি হন</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="হোম">
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-badge">🌿 ইলম ও আমলের পথে আসুন</div>
+      <div class="hero-arabic">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+      <h1 class="hero-title">
+        কুরআনের আলোয়
+        <span class="highlight">আলোকিত ভবিষ্যৎ</span>
+        গড়ুন
+      </h1>
+      <p class="hero-subtitle">
+        আন নাযাহ তাহফিযুল কুরআন মাদরাসায় আপনার সন্তানকে কুরআনের হাফেয হিসেবে গড়ে তুলুন।
+        দ্বীনি শিক্ষার পাশাপাশি আধুনিক জ্ঞানে সমৃদ্ধ করুন।
+      </p>
+      <div class="hero-btns">
+        <a href="#ভর্তি" class="btn-primary">📝 এখনই ভর্তি হন</a>
+        <a href="#প্রোগ্রাম" class="btn-outline">📚 প্রোগ্রাম দেখুন</a>
+      </div>
+    </div>
+    <!-- CLOCK + DATE + PRAYER WIDGET -->
+    <div class="hero-card" style="padding:0;overflow:hidden;">
+
+      <!-- ANALOG CLOCK + DIGITAL TIME -->
+      <div style="background:rgba(0,0,0,0.2);padding:22px 20px 16px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.1);">
+        <!-- Analog Clock -->
+        <div style="position:relative;width:110px;height:110px;margin:0 auto 12px;">
+          <canvas id="analogClock" width="110" height="110"></canvas>
+        </div>
+        <!-- Digital time -->
+        <div id="digitalTime" style="font-size:28px;font-weight:900;color:#fff;letter-spacing:2px;font-family:monospace;line-height:1;">00:00:00</div>
+        <div id="ampm" style="font-size:11px;color:var(--gold);font-weight:700;letter-spacing:3px;margin-top:2px;">AM</div>
+      </div>
+
+      <!-- DATE PANEL — 3 languages -->
+      <div style="padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;gap:6px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <span style="font-size:10px;color:rgba(255,255,255,0.5);font-weight:600;letter-spacing:1px;">আরবি</span>
+          <span id="arabicDate" style="font-size:13px;color:var(--gold);font-weight:700;text-align:right;">— লোড হচ্ছে —</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <span style="font-size:10px;color:rgba(255,255,255,0.5);font-weight:600;letter-spacing:1px;">বাংলা</span>
+          <span id="banglaDate" style="font-size:13px;color:#fff;font-weight:600;text-align:right;">লোড হচ্ছে...</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <span style="font-size:10px;color:rgba(255,255,255,0.5);font-weight:600;letter-spacing:1px;">English</span>
+          <span id="englishDate" style="font-size:13px;color:rgba(255,255,255,0.8);font-weight:500;text-align:right;">Loading...</span>
+        </div>
+      </div>
+
+      <!-- PRAYER TIMES -->
+      <div style="padding:14px 20px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+          <span style="font-size:11px;color:var(--gold);font-weight:700;letter-spacing:1px;">🕌 নামাযের সময়</span>
+          <span id="nextPrayer" style="font-size:10px;background:rgba(201,162,39,0.2);color:var(--gold);padding:2px 8px;border-radius:10px;font-weight:700;">লোড হচ্ছে...</span>
+        </div>
+        <div id="prayerGrid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;">
+          <!-- JS দিয়ে fill হবে -->
+          <div class="pt-card loading" style="background:rgba(255,255,255,0.06);border-radius:8px;padding:7px 4px;text-align:center;">
+            <div style="font-size:10px;color:rgba(255,255,255,0.5);">ফজর</div>
+            <div style="font-size:12px;color:#fff;font-weight:700;">--:--</div>
+          </div>
+          <div class="pt-card loading" style="background:rgba(255,255,255,0.06);border-radius:8px;padding:7px 4px;text-align:center;">
+            <div style="font-size:10px;color:rgba(255,255,255,0.5);">যোহর</div>
+            <div style="font-size:12px;color:#fff;font-weight:700;">--:--</div>
+          </div>
+          <div class="pt-card loading" style="background:rgba(255,255,255,0.06);border-radius:8px;padding:7px 4px;text-align:center;">
+            <div style="font-size:10px;color:rgba(255,255,255,0.5);">আসর</div>
+            <div style="font-size:12px;color:#fff;font-weight:700;">--:--</div>
+          </div>
+          <div class="pt-card loading" style="background:rgba(255,255,255,0.06);border-radius:8px;padding:7px 4px;text-align:center;">
+            <div style="font-size:10px;color:rgba(255,255,255,0.5);">মাগরিব</div>
+            <div style="font-size:12px;color:#fff;font-weight:700;">--:--</div>
+          </div>
+          <div class="pt-card loading" style="background:rgba(255,255,255,0.06);border-radius:8px;padding:7px 4px;text-align:center;">
+            <div style="font-size:10px;color:rgba(255,255,255,0.5);">এশা</div>
+            <div style="font-size:12px;color:#fff;font-weight:700;">--:--</div>
+          </div>
+          <div class="pt-card loading" style="background:rgba(255,255,255,0.06);border-radius:8px;padding:7px 4px;text-align:center;">
+            <div style="font-size:10px;color:rgba(255,255,255,0.5);">সূর্যোদয়</div>
+            <div style="font-size:12px;color:#fff;font-weight:700;">--:--</div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:8px;font-size:10px;color:rgba(255,255,255,0.35);" id="locationLabel">📍 অবস্থান নির্ধারণ হচ্ছে...</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="কেন-আমরা">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-header reveal">
+      <div class="section-tag">⭐ আমাদের বৈশিষ্ট্য</div>
+      <h2 class="section-title">কেন আমাদের মাদরাসা <span class="accent">আলাদা?</span></h2>
+      <p class="section-desc">আমরা শুধু কিতাব পড়াই না — একটি পরিপূর্ণ মুসলিম হিসেবে গড়ে তোলার প্রতিশ্রুতি দিই।</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon">🤲</div>
+        <div class="why-title">বিশুদ্ধ কুরআন শিক্ষা</div>
+        <p class="why-desc">তাজবীদসহ বিশুদ্ধ কুরআন তিলাওয়াত শেখানো হয়। প্রতিটি শিক্ষার্থীর উচ্চারণ ও মাখরাজ নিশ্চিত করা হয়।</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">👨‍🏫</div>
+        <div class="why-title">অভিজ্ঞ শিক্ষকমণ্ডলী</div>
+        <p class="why-desc">আমাদের সকল শিক্ষক দেশের স্বনামধন্য মাদরাসা থেকে সনদপ্রাপ্ত এবং বহু বছরের অভিজ্ঞতাসম্পন্ন।</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">🏡</div>
+        <div class="why-title">নিরাপদ আবাসিক পরিবেশ</div>
+        <p class="why-desc">শিশুদের জন্য সম্পূর্ণ নিরাপদ, পরিচ্ছন্ন ও ইসলামিক পরিবেশে আবাসিক সুবিধা নিশ্চিত করা হয়।</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">📱</div>
+        <div class="why-title">অভিভাবকদের সাথে যোগাযোগ</div>
+        <p class="why-desc">নিয়মিত অগ্রগতি রিপোর্ট ও সরাসরি যোগাযোগের মাধ্যমে অভিভাবকদের সবসময় আপডেট রাখা হয়।</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">📚</div>
+        <div class="why-title">সমন্বিত পাঠ্যক্রম</div>
+        <p class="why-desc">দ্বীনি শিক্ষার পাশাপাশি জাতীয় পাঠ্যক্রম অনুসরণ করে শিক্ষার্থীরা দুনিয়া-আখেরাত উভয় ক্ষেত্রে সফল হতে পারে।</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">💰</div>
+        <div class="why-title">সাশ্রয়ী মূল্যে শিক্ষা</div>
+        <p class="why-desc">মেধাবী ও গরিব শিক্ষার্থীদের জন্য বিশেষ বৃত্তির ব্যবস্থা রয়েছে। কেউ অর্থের অভাবে বঞ্চিত হবে না।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="প্রোগ্রাম">
+  <div class="islamic-pattern"></div>
+  <div style="max-width:1100px;margin:0 auto;position:relative;z-index:1;">
+    <div class="section-header reveal">
+      <div class="section-tag">📖 শিক্ষা কার্যক্রম</div>
+      <h2 class="section-title" style="color:#fff;">আমাদের <span class="accent">প্রোগ্রামসমূহ</span></h2>
+      <p class="section-desc" style="color:rgba(255,255,255,0.65);">প্রতিটি শিক্ষার্থীর বয়স ও যোগ্যতা অনুযায়ী বিভিন্ন প্রোগ্রামে ভর্তির সুযোগ রয়েছে।</p>
+    </div>
+    <div class="programs-grid">
+      <div class="program-card reveal">
+        <span class="program-emoji">📿</span>
+        <div class="program-name">হিফযুল কুরআন</div>
+        <p class="program-desc">সম্পূর্ণ কুরআন মুখস্থ করার এই বিভাগে বিশুদ্ধ তিলাওয়াত ও তাজবীদসহ হিফয সম্পন্ন করানো হয়।</p>
+        <span class="program-badge">৩-৫ বছর</span>
+      </div>
+      <div class="program-card reveal">
+        <span class="program-emoji">📖</span>
+        <div class="program-name">নাজেরা বিভাগ</div>
+        <p class="program-desc">দেখে দেখে বিশুদ্ধভাবে কুরআন তিলাওয়াত করার দক্ষতা অর্জন। ছোট বাচ্চাদের জন্য আদর্শ শুরু।</p>
+        <span class="program-badge">১-২ বছর</span>
+      </div>
+      <div class="program-card reveal">
+        <span class="program-emoji">🎓</span>
+        <div class="program-name">মক্তব বিভাগ</div>
+        <p class="program-desc">প্রাথমিক ইসলামি শিক্ষা — নামাজ, রোযা, কালেমা ও দৈনন্দিন দোয়া-মাসআলা শেখানো হয়।</p>
+        <span class="program-badge">১ বছর</span>
+      </div>
+      <div class="program-card reveal">
+        <span class="program-emoji">🏫</span>
+        <div class="program-name">প্রাইমারি বিভাগ</div>
+        <p class="program-desc">জাতীয় পাঠ্যক্রম অনুসরণ করে প্লে থেকে ৫ম শ্রেণি পর্যন্ত দ্বীনি পরিবেশে সাধারণ শিক্ষা।</p>
+        <span class="program-badge">প্লে — ৫ম শ্রেণি</span>
+      </div>
+      <div class="program-card reveal">
+        <span class="program-emoji">📝</span>
+        <div class="program-name">দাখিল বিভাগ</div>
+        <p class="program-desc">ইসলামিক শিক্ষা বোর্ডের অধীনে দাখিল পরীক্ষার প্রস্তুতিসহ সম্পূর্ণ মাদরাসা শিক্ষা।</p>
+        <span class="program-badge">৬ষ্ঠ — ১০ম শ্রেণি</span>
+      </div>
+      <div class="program-card reveal">
+        <span class="program-emoji">🌙</span>
+        <div class="program-name">তাহাজ্জুদ ও তারবিয়াত</div>
+        <p class="program-desc">রাতের তাহাজ্জুদ, জামাতে নামাজ ও নৈতিক চরিত্র গঠনের বিশেষ কার্যক্রম।</p>
+        <span class="program-badge">সকল শিক্ষার্থী</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACILITIES -->
+<section id="সুবিধাসমূহ">
+  <div class="facilities-layout">
+    <div class="reveal">
+      <div class="section-tag">🏛️ আমাদের সুবিধা</div>
+      <h2 class="section-title">শিক্ষার্থীদের জন্য <span class="accent">সর্বোত্তম পরিবেশ</span></h2>
+      <p class="section-desc" style="margin-bottom:32px;">আমরা বিশ্বাস করি একটি ভালো পরিবেশই পারে শিক্ষার্থীদের সত্যিকারের মেধা বিকাশ করতে।</p>
+      <div class="facilities-list">
+        <div class="facility-item">
+          <div class="facility-icon">🕌</div>
+          <div class="facility-info">
+            <h4>নিজস্ব মসজিদ</h4>
+            <p>পাঁচ ওয়াক্ত নামাজ জামাতে আদায়ের সুবিধা। শিক্ষার্থীরা শুরু থেকেই জামাতের অভ্যাস গড়ে তোলে।</p>
+          </div>
+        </div>
+        <div class="facility-item">
+          <div class="facility-icon">🍽️</div>
+          <div class="facility-info">
+            <h4>পুষ্টিকর খাবার</h4>
+            <p>তিন বেলা পরিচ্ছন্ন ও পুষ্টিকর হালাল খাবার। শিক্ষার্থীদের স্বাস্থ্য আমাদের অগ্রাধিকার।</p>
+          </div>
+        </div>
+        <div class="facility-item">
+          <div class="facility-icon">🏥</div>
+          <div class="facility-info">
+            <h4>স্বাস্থ্যসেবা</h4>
+            <p>নিয়মিত স্বাস্থ্য পরীক্ষা ও অসুস্থ শিক্ষার্থীদের তাৎক্ষণিক চিকিৎসার ব্যবস্থা।</p>
+          </div>
+        </div>
+        <div class="facility-item">
+          <div class="facility-icon">📚</div>
+          <div class="facility-info">
+            <h4>সমৃদ্ধ পাঠাগার</h4>
+            <p>ইসলামিক ও সাধারণ বই-পুস্তকে সমৃদ্ধ পাঠাগার শিক্ষার্থীদের জ্ঞানের তৃষ্ণা মেটায়।</p>
+          </div>
+        </div>
+        <div class="facility-item">
+          <div class="facility-icon">⚽</div>
+          <div class="facility-info">
+            <h4>খেলাধুলার মাঠ</h4>
+            <p>শরীর ও মন সতেজ রাখতে প্রতিদিন খেলাধুলার সময় নির্ধারিত রয়েছে।</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="facilities-visual">
+        <span class="facility-center-icon">🕌</span>
+        <div class="facility-center-text">আন নাযাহ মাদরাসা</div>
+        <div class="facility-center-sub">ইলম, আমল ও আখলাকের কেন্দ্র</div>
+        <div style="margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:12px;position:relative;z-index:1;">
+          <div style="background:rgba(255,255,255,0.1);border-radius:10px;padding:14px;text-align:center;">
+            <div style="font-size:24px;margin-bottom:4px;">☀️</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.8);font-weight:600;">সকাল ৬টা</div>
+            <div style="font-size:10px;color:var(--gold);">ফজর থেকে শুরু</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.1);border-radius:10px;padding:14px;text-align:center;">
+            <div style="font-size:24px;margin-bottom:4px;">🌙</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.8);font-weight:600;">রাত ১০টা</div>
+            <div style="font-size:10px;color:var(--gold);">এশার পর শেষ</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.1);border-radius:10px;padding:14px;text-align:center;">
+            <div style="font-size:24px;margin-bottom:4px;">👦</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.8);font-weight:600;">৫-১৮ বছর</div>
+            <div style="font-size:10px;color:var(--gold);">ভর্তির বয়স</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.1);border-radius:10px;padding:14px;text-align:center;">
+            <div style="font-size:24px;margin-bottom:4px;">🏠</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.8);font-weight:600;">আবাসিক</div>
+            <div style="font-size:10px;color:var(--gold);">সুবিধা আছে</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADMISSION -->
+<section id="ভর্তি">
+  <div class="admission-layout">
+    <div class="reveal">
+      <div class="section-tag">📝 ভর্তি প্রক্রিয়া</div>
+      <h2 class="section-title">সহজ <span class="accent">ভর্তি প্রক্রিয়া</span></h2>
+      <p class="section-desc" style="margin-bottom:36px;">মাত্র কয়েকটি ধাপে আপনার সন্তানকে ভর্তি করুন।</p>
+      <div class="admission-steps">
+        <div class="step">
+          <div class="step-num">১</div>
+          <div class="step-content">
+            <div class="step-title">📞 যোগাযোগ করুন</div>
+            <p class="step-desc">ফোন বা সরাসরি মাদরাসায় এসে ভর্তি সম্পর্কে বিস্তারিত জানুন।</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">২</div>
+          <div class="step-content">
+            <div class="step-title">📋 কাগজপত্র জমা দিন</div>
+            <p class="step-desc">জন্মনিবন্ধন, ছবি ও পূর্ববর্তী শ্রেণির সনদ নিয়ে আসুন।</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">৩</div>
+          <div class="step-content">
+            <div class="step-title">🎯 মূল্যায়ন পরীক্ষা</div>
+            <p class="step-desc">শিক্ষার্থীর যোগ্যতা অনুযায়ী উপযুক্ত শ্রেণিতে ভর্তি নিশ্চিত করা হয়।</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">৪</div>
+          <div class="step-content">
+            <div class="step-title">✅ ভর্তি নিশ্চিত</div>
+            <p class="step-desc">ফি পরিশোধের পর ভর্তি সম্পন্ন। ক্লাস শুরু পরের দিন থেকেই।</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="admission-info-card">
+        <div class="info-title">📊 ভর্তির তথ্য ২০২৫</div>
+        <div class="info-row">
+          <span class="info-label">ভর্তি ফি</span>
+          <span class="info-value highlight">৫০০ - ১০০০ টাকা</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">মাসিক বেতন</span>
+          <span class="info-value highlight">৮০০ - ১৫০০ টাকা</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">আবাসিক খরচ</span>
+          <span class="info-value">আলোচনা সাপেক্ষ</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">ভর্তির সময়</span>
+          <span class="info-value">সারা বছর</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">বৃত্তির সুবিধা</span>
+          <span class="info-value" style="color:var(--green-mid);">✅ আছে</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">আবাসিক সুবিধা</span>
+          <span class="info-value" style="color:var(--green-mid);">✅ আছে</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">যোগাযোগ</span>
+          <span class="info-value">০১৭XX-XXXXXX</span>
+        </div>
+        <a href="tel:01700000000" class="admission-cta">📞 এখনই কল করুন — ভর্তি হন</a>
+        <div style="text-align:center;margin-top:14px;font-size:12px;color:var(--text-muted);">🟢 এখন ভর্তি চলছে • আসন সীমিত</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEACHERS -->
+<section id="শিক্ষকমণ্ডলী">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-header reveal" style="text-align:center;">
+      <div class="section-tag">👨‍🏫 আমাদের দল</div>
+      <h2 class="section-title">অভিজ্ঞ <span class="accent">শিক্ষকমণ্ডলী</span></h2>
+      <p class="section-desc" style="margin:0 auto;">প্রতিটি শিক্ষক তাঁর বিষয়ে বিশেষজ্ঞ এবং শিক্ষার্থীদের প্রতি সম্পূর্ণ নিবেদিত।</p>
+    </div>
+    <div class="teachers-grid">
+      <div class="teacher-card reveal">
+        <div class="teacher-avatar">👨‍🏫</div>
+        <div class="teacher-name">মাওলানা আবদুল করিম</div>
+        <div class="teacher-role">প্রধান শিক্ষক ও হিফয বিভাগ</div>
+        <div class="teacher-edu">ঢাকা আলিয়া মাদরাসা থেকে ফাযিল সম্পন্ন। ২০+ বছরের শিক্ষকতার অভিজ্ঞতা।</div>
+      </div>
+      <div class="teacher-card reveal">
+        <div class="teacher-avatar">👨‍🎓</div>
+        <div class="teacher-name">হাফেয মুহাম্মদ ইউসুফ</div>
+        <div class="teacher-role">হিফয বিভাগ শিক্ষক</div>
+        <div class="teacher-edu">মদিনা বিশ্ববিদ্যালয় থেকে কুরআনের সনদপ্রাপ্ত। তাজবীদ বিশেষজ্ঞ।</div>
+      </div>
+      <div class="teacher-card reveal">
+        <div class="teacher-avatar">👩‍🏫</div>
+        <div class="teacher-name">উস্তাযা মরিয়ম বেগম</div>
+        <div class="teacher-role">মহিলা বিভাগ শিক্ষিকা</div>
+        <div class="teacher-edu">চট্টগ্রাম মহিলা মাদরাসা থেকে কামিল সম্পন্ন। ১৫ বছরের অভিজ্ঞতা।</div>
+      </div>
+      <div class="teacher-card reveal">
+        <div class="teacher-avatar">👨‍💼</div>
+        <div class="teacher-name">মোহাম্মদ আলী হাসান</div>
+        <div class="teacher-role">প্রাইমারি বিভাগ শিক্ষক</div>
+        <div class="teacher-edu">ঢাকা বিশ্ববিদ্যালয় থেকে বিএড সম্পন্ন। প্রাথমিক শিক্ষায় বিশেষজ্ঞ।</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="অভিভাবক-মতামত">
+  <div style="max-width:1100px;margin:0 auto;position:relative;z-index:1;">
+    <div class="section-header reveal" style="text-align:center;">
+      <div class="section-tag">💬 অভিভাবকদের কথা</div>
+      <h2 class="section-title" style="color:#fff;">তাঁরা <span class="accent">কী বলছেন</span></h2>
+      <p class="section-desc" style="color:rgba(255,255,255,0.6);margin:0 auto;">আমাদের শিক্ষার্থীদের অভিভাবকরা তাদের অভিজ্ঞতা শেয়ার করেছেন।</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="quote-icon">"</div>
+        <p class="testimonial-text">আমার ছেলে মাত্র ৩ বছরে সম্পূর্ণ কুরআন হিফয করেছে। শিক্ষকদের আন্তরিকতা ও পরিবেশ অতুলনীয়। প্রতি মাসে রিপোর্ট পাই, মনে হয় সন্তান চোখের সামনেই আছে।</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">👨</div>
+          <div>
+            <div class="author-name">মোহাম্মদ রফিকুল ইসলাম</div>
+            <div class="author-info">হাফেয আরিফের পিতা • ঢাকা</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="quote-icon">"</div>
+        <p class="testimonial-text">আমার মেয়েকে এখানে দেওয়ার পর থেকে তার আচার-আচরণে অসাধারণ পরিবর্তন এসেছে। নামাজ পড়ে, কুরআন তিলাওয়াত করে। একজন মা হিসেবে এর চেয়ে বড় পাওয়া আর কী হতে পারে!</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">👩</div>
+          <div>
+            <div class="author-name">মিসেস ফাতেমা খানম</div>
+            <div class="author-info">সুমাইয়ার মা • নারায়ণগঞ্জ</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="quote-icon">"</div>
+        <p class="testimonial-text">খাবার, থাকার জায়গা, শিক্ষার মান — সবদিক থেকেই সন্তুষ্ট। আমার ছেলে বাড়িতে আসলে যা শিখে এসেছে তা দেখে চোখে পানি আসে। আল্লাহ এই মাদরাসাকে আরো বড় করুন।</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">👨‍👦</div>
+          <div>
+            <div class="author-name">আব্দুল মান্নান সরকার</div>
+            <div class="author-info">ইয়াসিনের পিতা • গাজীপুর</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="যোগাযোগ">
+  <div class="contact-layout">
+    <div class="reveal">
+      <div class="section-tag">📍 যোগাযোগ করুন</div>
+      <h2 class="section-title">আমাদের সাথে <span class="accent">কথা বলুন</span></h2>
+      <p class="section-desc" style="margin-bottom:28px;">যেকোনো প্রশ্ন বা ভর্তি সংক্রান্ত জিজ্ঞাসায় আমরা সবসময় আপনার পাশে আছি।</p>
+      <div class="contact-info-list">
+        <a href="tel:01700000000" class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-label">ফোন</div>
+            <div class="contact-value">০১৭XX-XXXXXX</div>
+          </div>
+        </a>
+        <a href="tel:01800000000" class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div>
+            <div class="contact-label">হোয়াটসঅ্যাপ</div>
+            <div class="contact-value">০১৮XX-XXXXXX</div>
+          </div>
+        </a>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">ঠিকানা</div>
+            <div class="contact-value">আন নাযাহ মাদরাসা রোড,<br>আপনার এলাকা, জেলা।</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🕐</div>
+          <div>
+            <div class="contact-label">অফিস সময়</div>
+            <div class="contact-value">শনি–বৃহস্পতি: সকাল ৮টা – বিকাল ৫টা</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="contact-form-card">
+        <div class="form-title">✉️ বার্তা পাঠান</div>
+        <div class="form-group">
+          <label class="form-label">আপনার নাম</label>
+          <input type="text" class="form-input" placeholder="পূর্ণ নাম লিখুন">
+        </div>
+        <div class="form-group">
+          <label class="form-label">মোবাইল নম্বর</label>
+          <input type="tel" class="form-input" placeholder="০১XXXXXXXXX">
+        </div>
+        <div class="form-group">
+          <label class="form-label">সন্তানের বয়স ও শ্রেণি</label>
+          <input type="text" class="form-input" placeholder="যেমন: ৮ বছর, ৩য় শ্রেণি">
+        </div>
+        <div class="form-group">
+          <label class="form-label">আপনার বার্তা</label>
+          <textarea class="form-input" placeholder="আপনার প্রশ্ন বা মন্তব্য লিখুন..."></textarea>
+        </div>
+        <button class="form-submit" onclick="submitForm(this)">📨 বার্তা পাঠান</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM GALLERY -->
+<section id="গ্যালারি" style="background:#fff;padding:90px 5%;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-header reveal" style="text-align:center;">
+      <div class="section-tag">📸 আমাদের কার্যক্রম</div>
+      <h2 class="section-title">প্রতিটি মুহূর্ত <span class="accent">স্মরণীয়</span></h2>
+      <p class="section-desc" style="margin:0 auto;">মাদরাসার দৈনন্দিন কার্যক্রম, অনুষ্ঠান ও শিক্ষার্থীদের জীবনের কিছু মুহূর্ত।</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto;gap:16px;margin-top:8px;">
+      <!-- বড় ছবি বাম -->
+      <div class="reveal" style="grid-row:span 2;border-radius:16px;overflow:hidden;position:relative;min-height:320px;background:linear-gradient(160deg,var(--green-dark),var(--green-mid));display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;" onclick="openGallery(0)">
+        <div style="font-size:64px;margin-bottom:14px;">🕌</div>
+        <div style="color:#fff;font-weight:700;font-size:16px;font-family:'Noto Serif Bengali',serif;">হিফয ক্লাস</div>
+        <div style="color:var(--gold);font-size:12px;margin-top:4px;">দৈনন্দিন পাঠদান</div>
+        <div style="position:absolute;bottom:14px;right:14px;background:rgba(0,0,0,0.4);color:#fff;padding:4px 10px;border-radius:20px;font-size:11px;">📷 ছবি যোগ করুন</div>
+      </div>
+      <!-- ছোট ছবিগুলো -->
+      <div class="reveal" style="border-radius:16px;overflow:hidden;background:linear-gradient(135deg,#0d3520,#1a5c32);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;cursor:pointer;min-height:148px;" onclick="openGallery(1)">
+        <div style="font-size:40px;margin-bottom:8px;">🎓</div>
+        <div style="color:#fff;font-weight:700;font-size:14px;">সমাপনী অনুষ্ঠান</div>
+        <div style="color:var(--gold);font-size:11px;margin-top:3px;">বার্ষিক হিফয সনদ প্রদান</div>
+      </div>
+      <div class="reveal" style="border-radius:16px;overflow:hidden;background:linear-gradient(135deg,#8b3a0f,#d4651a);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;cursor:pointer;min-height:148px;" onclick="openGallery(2)">
+        <div style="font-size:40px;margin-bottom:8px;">🤲</div>
+        <div style="color:#fff;font-weight:700;font-size:14px;">তাহাজ্জুদ প্রোগ্রাম</div>
+        <div style="color:rgba(255,255,255,0.8);font-size:11px;margin-top:3px;">রাতের বিশেষ ইবাদত</div>
+      </div>
+      <div class="reveal" style="border-radius:16px;overflow:hidden;background:linear-gradient(135deg,#1a3a5c,#2a5a8a);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;cursor:pointer;min-height:148px;" onclick="openGallery(3)">
+        <div style="font-size:40px;margin-bottom:8px;">⚽</div>
+        <div style="color:#fff;font-weight:700;font-size:14px;">খেলাধুলা</div>
+        <div style="color:rgba(255,255,255,0.8);font-size:11px;margin-top:3px;">শরীর ও মন সুস্থ রাখি</div>
+      </div>
+      <div class="reveal" style="border-radius:16px;overflow:hidden;background:linear-gradient(135deg,#3a1a5c,#6a2a9a);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;cursor:pointer;min-height:148px;" onclick="openGallery(4)">
+        <div style="font-size:40px;margin-bottom:8px;">🍽️</div>
+        <div style="color:#fff;font-weight:700;font-size:14px;">খাবার ঘর</div>
+        <div style="color:rgba(255,255,255,0.8);font-size:11px;margin-top:3px;">পুষ্টিকর হালাল খাবার</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:20px;">
+      <p style="font-size:12px;color:var(--text-muted);background:var(--green-ultra);padding:10px 20px;border-radius:8px;display:inline-block;">💡 <b>ছবি যোগ করতে:</b> প্রতিটি কার্ডে আসল ছবির URL দিয়ে background-image সেট করুন</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROSPECTUS DOWNLOAD -->
+<section id="প্রসপেক্টাস" style="background:linear-gradient(135deg,var(--orange-ultra),#fff8f0);padding:90px 5%;border-top:1px solid rgba(212,101,26,0.12);">
+  <div style="max-width:900px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
+      <div class="reveal">
+        <div class="section-tag" style="background:rgba(212,101,26,0.1);color:var(--orange);border-color:rgba(212,101,26,0.2);">📄 প্রসপেক্টাস</div>
+        <h2 class="section-title">সম্পূর্ণ তথ্য <span style="color:var(--orange);">এক জায়গায়</span></h2>
+        <p style="font-size:14px;color:var(--text-muted);line-height:1.85;margin-bottom:28px;">আমাদের প্রসপেক্টাসে রয়েছে মাদরাসার ইতিহাস, সকল প্রোগ্রামের বিস্তারিত, ফি তালিকা, শিক্ষকমণ্ডলীর পরিচয় এবং ভর্তির সম্পূর্ণ নির্দেশিকা।</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
+          <li style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text);">
+            <span style="width:22px;height:22px;background:var(--green-ultra);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;">✅</span> সকল বিভাগের বিস্তারিত পাঠ্যক্রম
+          </li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text);">
+            <span style="width:22px;height:22px;background:var(--green-ultra);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;">✅</span> ২০২৫ সালের ফি ও বৃত্তির তালিকা
+          </li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text);">
+            <span style="width:22px;height:22px;background:var(--green-ultra);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;">✅</span> ভর্তির নিয়মাবলী ও প্রয়োজনীয় কাগজপত্র
+          </li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text);">
+            <span style="width:22px;height:22px;background:var(--green-ultra);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;">✅</span> দৈনিক রুটিন ও আবাসিক নিয়মকানুন
+          </li>
+        </ul>
+        <a href="prospectus.pdf" download id="prospectusBtn" style="display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--orange),var(--orange-light));color:#fff;padding:15px 28px;border-radius:10px;text-decoration:none;font-weight:700;font-size:15px;box-shadow:0 4px 20px rgba(212,101,26,0.35);transition:all 0.3s;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform=''">
+          ⬇️ প্রসপেক্টাস ডাউনলোড করুন
+        </a>
+        <div style="margin-top:10px;font-size:11px;color:var(--text-muted);">PDF ফরম্যাট • বিনামূল্যে</div>
+      </div>
+      <div class="reveal">
+        <div style="background:linear-gradient(160deg,var(--green-dark),#0a2010);border-radius:20px;padding:36px;text-align:center;position:relative;overflow:hidden;">
+          <div style="position:absolute;inset:0;opacity:0.05;background-image:url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23fff'%3E%3Cpath d='M20 0l5 8.66V20l-5 8.66L15 20V8.66L20 0z'/%3E%3C/g%3E%3C/svg%3E\");"></div>
+          <div style="font-size:70px;margin-bottom:16px;position:relative;z-index:1;">📋</div>
+          <div style="font-family:'Noto Serif Bengali',serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:6px;position:relative;z-index:1;">প্রসপেক্টাস ২০২৫</div>
+          <div style="color:var(--gold);font-size:13px;margin-bottom:20px;position:relative;z-index:1;">আন নাযাহ তাহফিযুল কুরআন মাদরাসা</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;position:relative;z-index:1;">
+            <div style="background:rgba(255,255,255,0.08);border-radius:8px;padding:12px;">
+              <div style="font-size:20px;font-weight:800;color:var(--gold);">৩০+</div>
+              <div style="font-size:10px;color:rgba(255,255,255,0.7);">পাতার বিস্তারিত</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.08);border-radius:8px;padding:12px;">
+              <div style="font-size:20px;font-weight:800;color:var(--gold);">বিনামূল্যে</div>
+              <div style="font-size:10px;color:rgba(255,255,255,0.7);">ডাউনলোড করুন</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ONLINE COURSES -->
+<section id="অনলাইন-কোর্স" style="background:var(--cream);padding:90px 5%;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-header reveal" style="text-align:center;">
+      <div class="section-tag">💻 অনলাইন শিক্ষা</div>
+      <h2 class="section-title">ঘরে বসে শিখুন <span class="accent">কুরআন</span></h2>
+      <p class="section-desc" style="margin:0 auto 16px;">দেশে বা বিদেশে যেখানেই থাকুন — আমাদের অভিজ্ঞ শিক্ষকদের সাথে সরাসরি অনলাইনে কুরআন শিখুন।</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+
+      <!-- পুরুষ কোর্স -->
+      <div class="reveal" style="background:#fff;border-radius:18px;overflow:hidden;border:1px solid rgba(0,0,0,0.07);transition:all 0.3s;" onmouseenter="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 50px rgba(0,0,0,0.1)'" onmouseleave="this.style.transform='';this.style.boxShadow=''">
+        <div style="background:linear-gradient(135deg,var(--green-dark),var(--green-mid));padding:28px;text-align:center;">
+          <div style="font-size:48px;margin-bottom:8px;">👨</div>
+          <div style="font-family:'Noto Serif Bengali',serif;font-size:18px;font-weight:800;color:#fff;">পুরুষ কোর্স</div>
+          <div style="color:var(--gold);font-size:12px;margin-top:4px;">শুধুমাত্র পুরুষ শিক্ষক</div>
+        </div>
+        <div style="padding:24px;">
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
+            <li style="font-size:13px;color:var(--text);display:flex;align-items:center;gap:8px;"><span style="color:var(--green-mid);">✦</span> নাজেরা থেকে হিফয</li>
+            <li style="font-size:13px;color:var(--text);display:flex;align-items:center;gap:8px;"><span style="color:var(--green-mid);">✦</span> তাজবীদ ও মাখরাজ</li>
+            <li style="font-size:13px;color:var(--text);display:flex;align-items:center;gap:8px;"><span style="color:var(--green-mid);">✦</span> আরবি ভাষা শিক্ষা</li>
+            <li style="font-size:13px;color:var(--text);display:flex;align-items:center;gap:8px;"><span style="color:var(--green-mid);">✦</span> সাপ্তাহিক ৫ ক্লাস</li>
+          </ul>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+            <div>
+              <div style="font-size:11px;color:var(--text-muted);">মাসিক ফি</div>
+              <div style="font-size:20px;font-weight:800;color:var(--green-mid);">৫০০ টাকা</div>
+            </div>
+            <div style="background:var(--green-ultra);color:var(--green-mid);padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700;">🟢 ভর্তি চলছে</div>
+          </div>
+          <a href="#যোগাযোগ" style="display:block;text-align:center;background:var(--green-mid);color:#fff;padding:12px;border-radius:9px;text-decoration:none;font-weight:700;font-size:13px;" onmouseenter="this.style.background='#1a5c32'" onmouseleave="this.style.background='#2a7a45'">ভর্তি হন →</a>
+        </div>
+      </div>
+
+      <!-- মহিলা কোর্স -->
+      <div class="reveal" style="background:#fff;border-radius:18px;overflow:hidden;border:1px solid rgba(0,0,0,0.07);transition:all 0.3s;" onmouseenter="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 50px rgba(0,0,0,0.1)'" onmouseleave="this.style.transform='';this.style.boxShadow=''">
+        <div style="background:linear-gradient(135deg,#7a1a4a,#b02a6a);padding:28px;text-align:center;">
+          <div style="font-size:48px;margin-bottom:8px;">👩</div>
+          <div style="font-family:'Noto Serif Bengali',serif;font-size:18px;font-weight:800;color:#fff;">মহিলা কোর্স</div>
+          <div style="color:#ffc8e0;font-size:12px;margin-top:4px;">শুধুমাত্র মহিলা শিক্ষিকা</div>
+        </div>
+        <div style="padding:24px;">
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
+            <li style="font-size:13px;color:var(--text);display:flex;align-items:center;gap:8px;"><span style="color:#b02a6a;">✦</span> মহিলা শিক্ষিকার তত্ত্বাবধানে</li>
+            <li style="font-size:13px;color:var(--text);display:flex;align-items:center;gap:8px;"><span style="color:#b02a6a;">✦</span> পর্দাসহ অনলাইন ক্লাস</li>
+            <li style="font-size:13px;color:var(--text);display:flex;align-items:center;gap:8px;"><span style="color:#b02a6a;">✦</span> নামাজ ও দোয়া শিক্ষা</li>
+            <li style="font-size:13px;color:var(--text);display:flex;align-items:center;gap:8px;"><span style="color:#b02a6a;">✦</span> নমনীয় সময়সূচি</li>
+          </ul>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+            <div>
+              <div style="font-size:11px;color:var(--text-muted);">মাসিক ফি</div>
+              <div style="font-size:20px;font-weight:800;color:#b02a6a;">৫০০ টাকা</div>
+            </div>
+            <div style="background:#fce8f0;color:#b02a6a;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700;">🟢 ভর্তি চলছে</div>
+          </div>
+          <a href="#যোগাযোগ" style="display:block;text-align:center;background:#b02a6a;color:#fff;padding:12px;border-radius:9px;text-decoration:none;font-weight:700;font-size:13px;">ভর্তি হন →</a>
+        </div>
+      </div>
+
+      <!-- বাচ্চাদের কোর্স -->
+      <div class="reveal" style="background:#fff;border-radius:18px;overflow:hidden;border:1px solid rgba(0,0,0,0.07);transition:all 0.3s;" onmouseenter="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 50px rgba(0,0,0,0.1)'" onmouseleave="this.style.transform='';this.style.boxShadow=''">
+        <div style="background:linear-gradient(135deg,#1a4a7a,#2a6aaa);padding:28px;text-align:center;">
+          <div style="font-size:48px;margin-bottom:8px;">👧🧒</div>
+          <div style="font-family:'Noto Serif Bengali',serif;font-size:18px;font-weight:800;color:#fff;">শিশু কোর্স</div>
+          <div style="color:#aaddff;font-size:12px;margin-top:4px;">বয়স ৫-১২ বছর</div>
+        </div>
+        <div style="padding:24px;">
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
+            <li style="font-size:13px;color:var(--text);display:flex;align-items:center;gap:8px;"><span style="color:#2a6aaa;">✦</span> গল্পে গল্পে কুরআন শেখা</li>
+            <li style="font-size:13px;color:var(--text);display:flex;align-items:center;gap:8px;"><span style="color:#2a6aaa;">✦</span> আরবি অক্ষর পরিচয়</li>
+            <li style="font-size:13px;color:var(--text);display:flex;align-items:center;gap:8px;"><span style="color:#2a6aaa;">✦</span> ছোট সূরা মুখস্থ</li>
+            <li style="font-size:13px;color:var(--text);display:flex;align-items:center;gap:8px;"><span style="color:#2a6aaa;">✦</span> সপ্তাহে ৩ দিন ক্লাস</li>
+          </ul>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+            <div>
+              <div style="font-size:11px;color:var(--text-muted);">মাসিক ফি</div>
+              <div style="font-size:20px;font-weight:800;color:#2a6aaa;">৩৫০ টাকা</div>
+            </div>
+            <div style="background:#e8f0fc;color:#2a6aaa;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700;">🟢 ভর্তি চলছে</div>
+          </div>
+          <a href="#যোগাযোগ" style="display:block;text-align:center;background:#2a6aaa;color:#fff;padding:12px;border-radius:9px;text-decoration:none;font-weight:700;font-size:13px;">ভর্তি হন →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SPECIAL OPPORTUNITIES -->
+<section id="বিশেষ-সুবিধা" style="background:linear-gradient(160deg,var(--green-dark),#0a2010);padding:90px 5%;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;" class="islamic-pattern"></div>
+  <div style="max-width:1100px;margin:0 auto;position:relative;z-index:1;">
+    <div class="section-header reveal" style="text-align:center;">
+      <div class="section-tag" style="background:rgba(201,162,39,0.15);color:var(--gold);border-color:rgba(201,162,39,0.3);">🌟 বিশেষ সুযোগ</div>
+      <h2 class="section-title" style="color:#fff;">সবার জন্য <span style="color:var(--gold);">দরজা খোলা</span></h2>
+      <p class="section-desc" style="color:rgba(255,255,255,0.65);margin:0 auto;">দূরত্ব, অর্থনৈতিক অবস্থা বা ভৌগোলিক অবস্থান — কোনো কিছুই যেন কুরআন শেখার পথে বাধা না হয়।</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;">
+
+      <!-- প্রবাসীদের জন্য -->
+      <div class="reveal" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:18px;padding:28px;transition:all 0.3s;" onmouseenter="this.style.background='rgba(255,255,255,0.13)';this.style.transform='translateY(-4px)'" onmouseleave="this.style.background='rgba(255,255,255,0.08)';this.style.transform=''">
+        <div style="font-size:44px;margin-bottom:14px;">✈️</div>
+        <div style="font-family:'Noto Serif Bengali',serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:10px;">প্রবাসীদের সন্তানদের জন্য</div>
+        <p style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:16px;">বিদেশে থাকলেও আপনার সন্তান আমাদের কাছে নিরাপদ। বিশেষ তত্ত্বাবধান ও নিয়মিত ভিডিও আপডেট।</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--gold);"><span>✅</span> WhatsApp এ নিয়মিত আপডেট</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--gold);"><span>✅</span> মাসিক ভিডিও রিপোর্ট কার্ড</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--gold);"><span>✅</span> অনলাইনে ফি পরিশোধ</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--gold);"><span>✅</span> বিশেষ প্রবাসী ছাড়</div>
+        </div>
+        <a href="#যোগাযোগ" style="display:inline-block;margin-top:18px;background:var(--gold);color:#1a2e1e;padding:9px 18px;border-radius:8px;text-decoration:none;font-weight:700;font-size:12px;">বিস্তারিত জানুন →</a>
+      </div>
+
+      <!-- ঢাকার বাইরের জন্য -->
+      <div class="reveal" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:18px;padding:28px;transition:all 0.3s;" onmouseenter="this.style.background='rgba(255,255,255,0.13)';this.style.transform='translateY(-4px)'" onmouseleave="this.style.background='rgba(255,255,255,0.08)';this.style.transform=''">
+        <div style="font-size:44px;margin-bottom:14px;">🗺️</div>
+        <div style="font-family:'Noto Serif Bengali',serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:10px;">ঢাকার বাইরে থেকে আসলে</div>
+        <p style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:16px;">দেশের যেকোনো প্রান্ত থেকে আসতে পারেন। আমাদের আবাসিক সুবিধায় সব ব্যবস্থা করা আছে।</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--gold);"><span>✅</span> আবাসিক সুবিধা উপলব্ধ</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--gold);"><span>✅</span> ভর্তিতে বিশেষ সহায়তা</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--gold);"><span>✅</span> পরিবহন পরামর্শ সেবা</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--gold);"><span>✅</span> ফোনেই সব প্রক্রিয়া সম্পন্ন</div>
+        </div>
+        <a href="#যোগাযোগ" style="display:inline-block;margin-top:18px;background:var(--gold);color:#1a2e1e;padding:9px 18px;border-radius:8px;text-decoration:none;font-weight:700;font-size:12px;">বিস্তারিত জানুন →</a>
+      </div>
+
+      <!-- দরিদ্র মেধাবীদের জন্য -->
+      <div class="reveal" style="background:rgba(212,101,26,0.15);border:1px solid rgba(212,101,26,0.3);border-radius:18px;padding:28px;transition:all 0.3s;" onmouseenter="this.style.background='rgba(212,101,26,0.22)';this.style.transform='translateY(-4px)'" onmouseleave="this.style.background='rgba(212,101,26,0.15)';this.style.transform=''">
+        <div style="font-size:44px;margin-bottom:14px;">🎓</div>
+        <div style="font-family:'Noto Serif Bengali',serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:10px;">দরিদ্র মেধাবীদের জন্য</div>
+        <p style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:16px;">অর্থের অভাবে কোনো মেধাবী শিশু বঞ্চিত হবে না। আমাদের বৃত্তি ও সহায়তা কার্যক্রম সর্বদা চালু।</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--orange-light);"><span>🌟</span> সম্পূর্ণ বিনামূল্যে পড়ার সুযোগ</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--orange-light);"><span>🌟</span> থাকা-খাওয়া সম্পূর্ণ ফ্রি</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--orange-light);"><span>🌟</span> বই-পোশাক সরবরাহ</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--orange-light);"><span>🌟</span> মাসিক বৃত্তির সুবিধা</div>
+        </div>
+        <a href="#যোগাযোগ" style="display:inline-block;margin-top:18px;background:var(--orange);color:#fff;padding:9px 18px;border-radius:8px;text-decoration:none;font-weight:700;font-size:12px;">আবেদন করুন →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CAREER / JOBS -->
+<section id="ক্যারিয়ার" style="background:#fff;padding:90px 5%;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;">
+      <div class="reveal">
+        <div class="section-tag">💼 ক্যারিয়ার</div>
+        <h2 class="section-title">শিক্ষক হিসেবে <span class="accent">যোগ দিন</span></h2>
+        <p style="font-size:14px;color:var(--text-muted);line-height:1.85;margin-bottom:24px;">
+          আপনি কি কুরআনের শিক্ষক হতে চান? আমাদের সাথে যোগ দিন এবং আখেরাতের পাথেয় সংগ্রহ করুন। 
+          আমরা সবসময় যোগ্য, নিবেদিত এবং চরিত্রবান শিক্ষক খুঁজছি।
+        </p>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:28px;">
+          <div style="display:flex;align-items:center;gap:12px;padding:14px;background:var(--cream);border-radius:10px;border:1px solid rgba(0,0,0,0.05);">
+            <span style="font-size:22px;">🕌</span>
+            <div>
+              <div style="font-weight:700;font-size:14px;color:var(--text);">হিফয বিভাগ শিক্ষক</div>
+              <div style="font-size:12px;color:var(--text-muted);">হাফেয হতে হবে, তাজবীদে দক্ষ</div>
+            </div>
+            <div style="margin-left:auto;background:var(--green-ultra);color:var(--green-mid);padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700;">চলছে</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:14px;background:var(--cream);border-radius:10px;border:1px solid rgba(0,0,0,0.05);">
+            <span style="font-size:22px;">📚</span>
+            <div>
+              <div style="font-weight:700;font-size:14px;color:var(--text);">প্রাইমারি শিক্ষক</div>
+              <div style="font-size:12px;color:var(--text-muted);">বিএড বা সমমান, অভিজ্ঞ হলে ভালো</div>
+            </div>
+            <div style="margin-left:auto;background:var(--green-ultra);color:var(--green-mid);padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700;">চলছে</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:14px;background:var(--cream);border-radius:10px;border:1px solid rgba(0,0,0,0.05);">
+            <span style="font-size:22px;">💻</span>
+            <div>
+              <div style="font-weight:700;font-size:14px;color:var(--text);">অনলাইন কুরআন শিক্ষক</div>
+              <div style="font-size:12px;color:var(--text-muted);">ঘরে বসে অনলাইনে ক্লাস নিতে পারবেন</div>
+            </div>
+            <div style="margin-left:auto;background:var(--green-ultra);color:var(--green-mid);padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700;">চলছে</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:14px;background:var(--cream);border-radius:10px;border:1px solid rgba(0,0,0,0.05);">
+            <span style="font-size:22px;">👩‍🏫</span>
+            <div>
+              <div style="font-weight:700;font-size:14px;color:var(--text);">মহিলা শিক্ষিকা</div>
+              <div style="font-size:12px;color:var(--text-muted);">মহিলা বিভাগ ও অনলাইন কোর্সের জন্য</div>
+            </div>
+            <div style="margin-left:auto;background:var(--green-ultra);color:var(--green-mid);padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700;">চলছে</div>
+          </div>
+        </div>
+        <a href="#যোগাযোগ" style="display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--green-mid),var(--green-dark));color:#fff;padding:14px 26px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;box-shadow:0 4px 16px rgba(26,92,50,0.3);transition:all 0.3s;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform=''">📩 আবেদন করুন</a>
+      </div>
+
+      <div class="reveal">
+        <div style="background:linear-gradient(160deg,var(--green-dark),#0a2010);border-radius:20px;padding:32px;">
+          <div style="font-family:'Noto Serif Bengali',serif;font-size:17px;font-weight:700;color:#fff;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,0.1);">🌟 শিক্ষক হিসেবে যা পাবেন</div>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div style="display:flex;align-items:start;gap:12px;">
+              <span style="font-size:20px;margin-top:2px;">💰</span>
+              <div>
+                <div style="font-weight:700;font-size:13px;color:#fff;margin-bottom:3px;">প্রতিযোগিতামূলক বেতন</div>
+                <div style="font-size:12px;color:rgba(255,255,255,0.6);">যোগ্যতা ও অভিজ্ঞতা অনুযায়ী আকর্ষণীয় বেতন প্যাকেজ।</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:start;gap:12px;">
+              <span style="font-size:20px;margin-top:2px;">📈</span>
+              <div>
+                <div style="font-weight:700;font-size:13px;color:#fff;margin-bottom:3px;">পেশাদার উন্নয়ন</div>
+                <div style="font-size:12px;color:rgba(255,255,255,0.6);">নিয়মিত প্রশিক্ষণ ও দক্ষতা বৃদ্ধির সুযোগ।</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:start;gap:12px;">
+              <span style="font-size:20px;margin-top:2px;">🏠</span>
+              <div>
+                <div style="font-weight:700;font-size:13px;color:#fff;margin-bottom:3px;">আবাসিক সুবিধা</div>
+                <div style="font-size:12px;color:rgba(255,255,255,0.6);">বাইরে থেকে আসলে থাকার ব্যবস্থা করা হয়।</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:start;gap:12px;">
+              <span style="font-size:20px;margin-top:2px;">🤝</span>
+              <div>
+                <div style="font-weight:700;font-size:13px;color:#fff;margin-bottom:3px;">সহযোগী পরিবেশ</div>
+                <div style="font-size:12px;color:rgba(255,255,255,0.6);">ইসলামিক পরিবেশে কাজ করার সুযোগ।</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:start;gap:12px;">
+              <span style="font-size:20px;margin-top:2px;">📿</span>
+              <div>
+                <div style="font-weight:700;font-size:13px;color:#fff;margin-bottom:3px;">আখেরাতের পুরস্কার</div>
+                <div style="font-size:12px;color:rgba(255,255,255,0.6);">"যে ব্যক্তি কুরআন শেখে ও অন্যকে শেখায় সেই সর্বোত্তম।" — বুখারি</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+        <div style="width:40px;height:40px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;">🕌</div>
+        <div>
+          <div class="footer-brand-name">আন নাযাহ তাহফিযুল কুরআন মাদরাসা</div>
+          <div class="footer-brand-sub">An Nazah Tahfizul Quran Madrasa</div>
+        </div>
+      </div>
+      <p class="footer-desc">কুরআনের আলোয় আলোকিত একটি প্রজন্ম গড়ার লক্ষ্যে আমরা অবিরাম কাজ করে যাচ্ছি। ইলম, আমল ও আখলাকের সমন্বয়ে সত্যিকারের মুসলিম তৈরিই আমাদের লক্ষ্য।</p>
+    </div>
+    <div>
+      <div class="footer-heading">দ্রুত লিংক</div>
+      <ul class="footer-links">
+        <li><a href="#কেন-আমরা">কেন আমরা আলাদা</a></li>
+        <li><a href="#প্রোগ্রাম">প্রোগ্রামসমূহ</a></li>
+        <li><a href="#অনলাইন-কোর্স">অনলাইন কোর্স</a></li>
+        <li><a href="#বিশেষ-সুবিধা">বিশেষ সুবিধা</a></li>
+        <li><a href="#ক্যারিয়ার">শিক্ষক নিয়োগ</a></li>
+        <li><a href="#প্রসপেক্টাস">প্রসপেক্টাস</a></li>
+        <li><a href="#ভর্তি">ভর্তি তথ্য</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">যোগাযোগ</div>
+      <ul class="footer-links">
+        <li><a href="tel:01700000000">📞 ০১৭XX-XXXXXX</a></li>
+        <li><a href="#">📱 WhatsApp</a></li>
+        <li><a href="#">📍 ঠিকানা দেখুন</a></li>
+        <li><a href="#">✉️ ইমেইল করুন</a></li>
+        <li><a href="#">📘 Facebook</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© ২০২৫ আন নাযাহ তাহফিযুল কুরআন মাদরাসা। সর্বস্বত্ব সংরক্ষিত।</div>
+    <div style="color:var(--gold);font-size:13px;">اللَّهُمَّ انْفَعْنَا بِمَا عَلَّمْتَنَا</div>
+  </div>
+</footer>
+
+<!-- SCROLL TO TOP -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  // Hamburger menu
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+
+  // Scroll effects
+  window.addEventListener('scroll', function() {
+    var scrollTop = document.getElementById('scrollTop');
+    if(window.scrollY > 400) scrollTop.classList.add('show');
+    else scrollTop.classList.remove('show');
+  });
+
+  // Reveal on scroll
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if(entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(function(el) {
+    observer.observe(el);
+  });
+
+  // Staggered reveal for grid items
+  document.querySelectorAll('.why-card, .program-card, .teacher-card, .testimonial-card').forEach(function(el, i) {
+    el.style.transitionDelay = (i % 3) * 0.12 + 's';
+  });
+
+  // Form submit
+  function submitForm(btn) {
+    btn.textContent = '✅ পাঠানো হয়েছে!';
+    btn.style.background = 'linear-gradient(135deg, var(--green-mid), var(--green-dark))';
+    setTimeout(function() {
+      btn.textContent = '📨 বার্তা পাঠান';
+      btn.style.background = '';
+    }, 3000);
+  }
+
+  // ===================== CLOCK + DATE + PRAYER TIMES =====================
+
+  // Bengali digits
+  function toBN(n) {
+    return String(n).replace(/[0-9]/g, d => '০১২৩৪৫৬৭৮৯'[d]);
+  }
+
+  // Analog Clock
+  function drawClock() {
+    var canvas = document.getElementById('analogClock');
+    if(!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var W = canvas.width, H = canvas.height;
+    var cx = W/2, cy = H/2, r = W/2 - 4;
+    var now = new Date();
+    var hr = now.getHours() % 12, mn = now.getMinutes(), sc = now.getSeconds();
+
+    ctx.clearRect(0, 0, W, H);
+
+    // Outer glow ring
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, 0, 2*Math.PI);
+    ctx.strokeStyle = 'rgba(201,162,39,0.5)';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // Face
+    ctx.beginPath();
+    ctx.arc(cx, cy, r - 2, 0, 2*Math.PI);
+    ctx.fillStyle = 'rgba(0,0,0,0.4)';
+    ctx.fill();
+
+    // Hour marks
+    for(var i = 0; i < 12; i++) {
+      var a = (i * 30) * Math.PI / 180;
+      var isMain = i % 3 === 0;
+      var len = isMain ? 8 : 4;
+      var x1 = cx + (r-6) * Math.sin(a), y1 = cy - (r-6) * Math.cos(a);
+      var x2 = cx + (r-6-len) * Math.sin(a), y2 = cy - (r-6-len) * Math.cos(a);
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.strokeStyle = isMain ? 'rgba(201,162,39,0.9)' : 'rgba(255,255,255,0.3)';
+      ctx.lineWidth = isMain ? 2 : 1;
+      ctx.stroke();
+    }
+
+    function hand(angle, length, width, color) {
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.lineTo(cx + length * Math.sin(angle), cy - length * Math.cos(angle));
+      ctx.strokeStyle = color;
+      ctx.lineWidth = width;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+    }
+
+    // Hour hand
+    hand((hr + mn/60) * 30 * Math.PI/180, r*0.45, 3.5, '#ffffff');
+    // Minute hand
+    hand((mn + sc/60) * 6 * Math.PI/180, r*0.62, 2.5, 'rgba(255,255,255,0.9)');
+    // Second hand
+    hand(sc * 6 * Math.PI/180, r*0.68, 1.5, '#c9a227');
+
+    // Center dot
+    ctx.beginPath();
+    ctx.arc(cx, cy, 4, 0, 2*Math.PI);
+    ctx.fillStyle = '#c9a227';
+    ctx.fill();
+  }
+
+  // Digital Clock + Date
+  function updateClock() {
+    var now = new Date();
+    var h = now.getHours(), m = now.getMinutes(), s = now.getSeconds();
+    var isAM = h < 12;
+    var h12 = h % 12 || 12;
+    var pad = n => String(n).padStart(2,'0');
+
+    // Digital
+    var dt = document.getElementById('digitalTime');
+    if(dt) dt.textContent = pad(h12) + ':' + pad(m) + ':' + pad(s);
+    var ap = document.getElementById('ampm');
+    if(ap) ap.textContent = isAM ? 'AM' : 'PM';
+
+    // English date
+    var ed = document.getElementById('englishDate');
+    if(ed) {
+      var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      ed.textContent = days[now.getDay()] + ', ' + now.getDate() + ' ' + months[now.getMonth()] + ' ' + now.getFullYear();
+    }
+
+    // Bangla date
+    var bd = document.getElementById('banglaDate');
+    if(bd) {
+      var bnDays = ['রবিবার','সোমবার','মঙ্গলবার','বুধবার','বৃহস্পতিবার','শুক্রবার','শনিবার'];
+      var bnMonths = ['জানুয়ারি','ফেব্রুয়ারি','মার্চ','এপ্রিল','মে','জুন','জুলাই','আগস্ট','সেপ্টেম্বর','অক্টোবর','নভেম্বর','ডিসেম্বর'];
+      bd.textContent = bnDays[now.getDay()] + ', ' + toBN(now.getDate()) + ' ' + bnMonths[now.getMonth()] + ' ' + toBN(now.getFullYear());
+    }
+
+    // Arabic/Hijri date
+    var ad = document.getElementById('arabicDate');
+    if(ad) {
+      try {
+        var hijri = new Intl.DateTimeFormat('ar-SA-u-ca-islamic', {
+          day: 'numeric', month: 'long', year: 'numeric', weekday: 'long'
+        }).format(now);
+        ad.textContent = hijri;
+      } catch(e) {
+        ad.textContent = 'হিজরি তারিখ';
+      }
+    }
+
+    drawClock();
+
+    // Highlight next prayer
+    highlightNextPrayer();
+  }
+
+  // Prayer times via Aladhan API (location-based)
+  var prayerData = null;
+
+  function loadPrayerTimes() {
+    var lat = 23.8103, lng = 90.4125; // Default: Dhaka
+    var locLabel = 'ঢাকা, বাংলাদেশ';
+
+    function fetchPrayers(la, lo, label) {
+      var today = new Date();
+      var dd = String(today.getDate()).padStart(2,'0');
+      var mm = String(today.getMonth()+1).padStart(2,'0');
+      var yyyy = today.getFullYear();
+      var url = 'https://api.aladhan.com/v1/timings/'+dd+'-'+mm+'-'+yyyy+'?latitude='+la+'&longitude='+lo+'&method=1';
+
+      fetch(url).then(function(r){ return r.json(); }).then(function(d) {
+        if(d.code === 200) {
+          prayerData = d.data.timings;
+          renderPrayerTimes(prayerData);
+          var ll = document.getElementById('locationLabel');
+          if(ll) ll.textContent = '📍 ' + label;
+        }
+      }).catch(function() {
+        // Fallback Dhaka times
+        prayerData = { Fajr:'04:45',Dhuhr:'12:05',Asr:'15:30',Maghrib:'18:08',Isha:'19:22',Sunrise:'06:00' };
+        renderPrayerTimes(prayerData);
+        var ll = document.getElementById('locationLabel');
+        if(ll) ll.textContent = '📍 ঢাকা (ডিফল্ট)';
+      });
+    }
+
+    // Try geolocation first
+    if(navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        function(pos) {
+          fetchPrayers(pos.coords.latitude, pos.coords.longitude, 'আপনার অবস্থান');
+        },
+        function() { fetchPrayers(lat, lng, locLabel); },
+        { timeout: 5000 }
+      );
+    } else {
+      fetchPrayers(lat, lng, locLabel);
+    }
+  }
+
+  function renderPrayerTimes(times) {
+    var prayers = [
+      { name: 'ফজর',    key: 'Fajr' },
+      { name: 'যোহর',   key: 'Dhuhr' },
+      { name: 'আসর',    key: 'Asr' },
+      { name: 'মাগরিব', key: 'Maghrib' },
+      { name: 'এশা',    key: 'Isha' },
+      { name: 'সূর্যোদয়',key: 'Sunrise' },
+    ];
+    var grid = document.getElementById('prayerGrid');
+    if(!grid) return;
+    grid.innerHTML = prayers.map(function(p) {
+      var t = times[p.key] || '--:--';
+      // trim seconds if present
+      t = t.substring(0,5);
+      var [hh, mi] = t.split(':').map(Number);
+      var ampm = hh >= 12 ? 'PM' : 'AM';
+      var h12 = hh % 12 || 12;
+      var display = toBN(String(h12).padStart(2,'0')) + ':' + toBN(String(mi).padStart(2,'0')) + ' ' + ampm;
+      return '<div class="pt-card" id="pt-'+p.key+'" style="background:rgba(255,255,255,0.06);border-radius:8px;padding:7px 4px;text-align:center;transition:all 0.3s;">' +
+        '<div style="font-size:10px;color:rgba(255,255,255,0.55);">' + p.name + '</div>' +
+        '<div style="font-size:12px;color:#fff;font-weight:700;">' + display + '</div>' +
+        '</div>';
+    }).join('');
+    highlightNextPrayer();
+  }
+
+  function highlightNextPrayer() {
+    if(!prayerData) return;
+    var now = new Date();
+    var nowMin = now.getHours()*60 + now.getMinutes();
+    var order = ['Fajr','Sunrise','Dhuhr','Asr','Maghrib','Isha'];
+    var names = {Fajr:'ফজর',Sunrise:'সূর্যোদয়',Dhuhr:'যোহর',Asr:'আসর',Maghrib:'মাগরিব',Isha:'এশা'};
+    var next = null;
+
+    order.forEach(function(k) {
+      var t = (prayerData[k]||'').substring(0,5);
+      var parts = t.split(':');
+      var pMin = parseInt(parts[0])*60 + parseInt(parts[1]||0);
+      if(!next && pMin > nowMin) next = k;
+    });
+    if(!next) next = 'Fajr'; // পরের দিন ফজর
+
+    // Reset all
+    order.forEach(function(k) {
+      var el = document.getElementById('pt-'+k);
+      if(el) {
+        el.style.background = 'rgba(255,255,255,0.06)';
+        el.style.border = '1px solid transparent';
+      }
+    });
+
+    // Highlight next
+    var nextEl = document.getElementById('pt-'+next);
+    if(nextEl) {
+      nextEl.style.background = 'rgba(201,162,39,0.25)';
+      nextEl.style.border = '1px solid rgba(201,162,39,0.6)';
+    }
+
+    var np = document.getElementById('nextPrayer');
+    if(np) np.textContent = 'পরবর্তী: ' + (names[next]||next);
+  }
+
+  // Init
+  updateClock();
+  setInterval(updateClock, 1000);
+  loadPrayerTimes();
+
+  // Reload prayer times at midnight
+  setInterval(function() {
+    var now = new Date();
+    if(now.getHours()===0 && now.getMinutes()===0 && now.getSeconds()===0) loadPrayerTimes();
+  }, 1000);
+
+  // Close menu on outside click
+  document.addEventListener('click', function(e) {
+    var menu = document.getElementById('mobileMenu');
+    var hamburger = document.getElementById('hamburger');
+    if(menu.classList.contains('open') && !menu.contains(e.target) && !hamburger.contains(e.target)) {
+      menu.classList.remove('open');
+    }
+  });
+</script>
+</body>
+</html>
